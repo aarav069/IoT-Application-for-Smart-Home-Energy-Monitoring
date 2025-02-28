@@ -1,0 +1,126 @@
+<div ng-controller="notificationsController">
+
+        <div class="app" id="app">
+        
+            <!-- ############ LAYOUT START-->
+              <div class="center-block w-xxl2 w-auto-xs p-y-md">
+                <div class="navbar">
+                  <div class="pull-center">
+            
+                    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+                    
+                  </div>
+                </div>
+                <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
+                    <h3>Smart Energy Monitoring App </h3>
+                    <br>
+                    
+                    <div class="clearfix m-b nav-active-dark">
+                        <ul class="nav nav-pills" ui-nav>
+                          
+                          <li class="nav-item">
+                            <a class="nav-link" href="#/">
+                            <i class="material-icons md-24">&#xe88a;</i>
+                            </a>
+                          </li>
+                          
+                          <li class="nav-item">
+                          <a class="nav-link"  href="#/devices">Devices</a>
+                          </li>
+        
+                          <li class="nav-item">
+                            <a class="nav-link"  href="#/bills">Bills</a>
+                            </li>
+          
+                            <li class="nav-item">
+                              <a class="nav-link"  href="#/profile">
+                                <i class="material-icons md-24">&#xe7fd;</i>
+                              </a>
+                            </li>
+                            
+                            <li class="nav-item">
+                              <a class="nav-link"  href="#/settings">
+                                <i class="material-icons md-24">&#xe8b8;</i>
+                              </a>
+                            </li>
+                          
+                            <li class="nav-item active" ng-controller="notificationsController">
+                                <a class="nav-link"  href="#/notifications">
+                                  <i class="material-icons md-24">&#xe7f4;</i>
+                                  <b class="label rounded danger up" ng-bind="notifications.length"></b>
+                                </a>
+                            </li>
+                            
+                            
+                            <li class="nav-item" ng-controller="logoutController">
+                            <a class="nav-link" ng-click='logout()' >
+                              <i class="material-icons md-24">&#xe8ac;</i>
+                            </a>
+                            </li>
+                          
+        
+                        </ul>
+                      </div>
+
+                      
+
+                      <div class="b-b b-primary nav-active-primary">
+                            <ul class="nav nav-tabs">
+                              <li class="nav-item">
+                                <a class="nav-link active" href data-toggle="tab" data-target="#tab_unread">Unread</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link " href data-toggle="tab" data-target="#tab_read">Read</a>
+                              </li>
+                            </ul>
+                          </div>
+
+                          <div class="tab-content p-a m-b-md">
+                            <div class="tab-pane animated fadeIn text-muted" id="tab_unread">
+                              
+                                <div class="row m-b" ng-repeat="notification in notifications">
+                                    <div class="box">
+                                            <div class="box-header accent">
+                                              <h3 ng-bind="NotificationTypeToText(notification.type)"></h3>
+                                              <small ng-bind="notification.time"></small>
+                                              <div class="box-tool">
+                                                <ul class="nav">
+                                                  <li class="nav-item inline">
+                                                    <a class="nav-link">
+                                                      <i class="material-icons md-18">&#xe876;</i>
+                                                    </a>
+                                                  </li>
+                                                  
+                                                </ul>
+                                              </div>
+                                            </div>
+                                            <div class="box-body" style="background-color: whitesmoke">
+                                              <p class="m-a-0" ng-bind="notification.msg"></p>
+                                            </div>
+                                          </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="tab-pane animated fadeIn text-muted " id="tab_read">
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+        
+                    
+        
+        
+                </div>
+           
+                
+              </div>
+            
+            <!-- ############ LAYOUT END-->
+            
+            </div>
+            
+</div>
+          
